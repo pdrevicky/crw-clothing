@@ -15,6 +15,9 @@ const Navigation = () => {
           <Link className="nav-link" to="/shop">
             SHOP
           </Link>
+          <Link className="nav-link" to="/sign-in">
+            SIGN IN
+          </Link>
         </div>
         {/* Outles is rendering Routes components nested inside  Route Navagation component*/}
       </div>
