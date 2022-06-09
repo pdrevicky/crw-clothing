@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Authentication from "./routes/authetication/authentication.component";
+import Checkout from "./routes/checkout/checkout.component";
 import Home from "./routes/home/home.component";
 import Navigation from "./routes/navigation/navigation.component";
 import Shop from "./routes/shop/shop.component";
@@ -9,9 +10,10 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Navigation />}>
         {/* index mean that <Navigation /> and also <Home /> component will be rendered if the path match '/' */}
-        <Route index element={<Home />}></Route>{" "}
-        <Route path="shop" element={<Shop />}></Route>
-        <Route path="auth" element={<Authentication />}></Route>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<Shop />} />
+        <Route path="auth" element={<Authentication />} />
+        <Route path="checkout" element={<Checkout />} />
       </Route>
     </Routes>
   );
