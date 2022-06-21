@@ -1,4 +1,10 @@
-import "./product.card.styles.scss";
+import {
+  ProductCartContainer,
+  ProductCardImage,
+  ProductCardFooter,
+  ProductCardPrice,
+  ProductCardName,
+} from "./product.card.styles.jsx";
 
 import Button from "../button/button.componet";
 
@@ -13,16 +19,16 @@ const ProductCard = ({ product }) => {
   const addProductToCart = () => addItemToCart(product);
 
   return (
-    <div className="product-card-container">
-      <img src={imageUrl} alt={`${name}`} />
-      <div className="footer">
-        <span className="name">{name}</span>
-        <span className="price">{price}</span>
-      </div>
+    <ProductCartContainer>
+      <ProductCardImage src={imageUrl} alt={`${name}`} />
+      <ProductCardFooter>
+        <ProductCardName>{name}</ProductCardName>
+        <ProductCardPrice>{price}</ProductCardPrice>
+      </ProductCardFooter>
       <Button onClick={addProductToCart} buttonType="inverted">
         Add to card
       </Button>
-    </div>
+    </ProductCartContainer>
   );
 };
 
