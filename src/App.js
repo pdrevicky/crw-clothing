@@ -11,7 +11,8 @@ const App = () => {
       <Route path="/" element={<Navigation />}>
         {/* index mean that <Navigation /> and also <Home /> component will be rendered if the path match '/' */}
         <Route index element={<Home />} />
-        <Route path="shop" element={<Shop />} />
+        {/* if you match shop/* render <shop/> component you can expext futher routes */}
+        <Route path="shop/*" element={<Shop />} />
         <Route path="auth" element={<Authentication />} />
         <Route path="checkout" element={<Checkout />} />
       </Route>
