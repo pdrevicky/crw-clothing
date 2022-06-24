@@ -1,8 +1,10 @@
-import "./cart-icon.styless.scss";
+import {
+  ShoppingIcon,
+  CartIconContainer,
+  ItemCount,
+} from "./cart-icon.styless.jsx";
 
 import { useContext } from "react";
-
-import { ReactComponent as ShoppingIcon } from "../../assests/shopping-bag.svg";
 
 import { CartContext } from "../../contexts/cart.context";
 
@@ -12,10 +14,10 @@ const CartIcon = () => {
   const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
 
   return (
-    <div className="cart-icon-container" onClick={toggleIsCartOpen}>
-      <ShoppingIcon className="shopping-icon" />
-      <span className="item-count">{cartCount}</span>
-    </div>
+    <CartIconContainer onClick={toggleIsCartOpen}>
+      <ShoppingIcon />
+      <ItemCount>{cartCount}</ItemCount>
+    </CartIconContainer>
   );
 };
 
