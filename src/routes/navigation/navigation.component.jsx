@@ -1,12 +1,12 @@
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { ReactComponent as CrwLogo } from "../../assests/crown.svg";
+import { ReactComponent as CrwnLogo } from "../../assests/crown.svg";
 import CartDropdown from "../../components/cart-dropwdown/cart-dropdown.component";
 import CartIcon from "../../components/cart-icon.component.jsx/cart-icon.component";
-import { CartContext } from "../../contexts/cart.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import { selectIsCartOpen } from "../../store/cart/cart.selector";
 
 import {
   NavigationContainer,
@@ -18,20 +18,20 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
-
-  const { isCartOpen } = useContext(CartContext);
+  const isCartOpen = useSelector(selectIsCartOpen);
 
   return (
     <Fragment>
       <NavigationContainer>
         <LogoContainer to="/">
-          <CrwLogo className="logo" />
+          <CrwnLogo className="logo" />
         </LogoContainer>
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
+
           {currentUser ? (
             <NavLink as="span" onClick={signOutUser}>
-              SING OUT
+              SIGN OUT
             </NavLink>
           ) : (
             <NavLink to="/auth">SIGN IN</NavLink>
@@ -39,7 +39,6 @@ const Navigation = () => {
           <CartIcon />
         </NavLinks>
         {isCartOpen && <CartDropdown />}
-        {/* Outles is rendering Routes components nested inside  Route Navagation component*/}
       </NavigationContainer>
       <Outlet />
     </Fragment>
